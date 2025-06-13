@@ -1,8 +1,5 @@
 {
   "devDependencies": {
     "@angular/cli": "^20.0.2"
-  },
-  "dependencies": {
-    "bootstrap": "^5.3.6"
   }
 }

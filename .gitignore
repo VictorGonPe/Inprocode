@@ -47,6 +47,5 @@ frontend/coverage/
 backend/coverage/
 
 # Archivos temporales de TypeScript (si llegas a usarlo en backend)
-backend/**/*.js
 backend/**/*.js.map
 backend/**/*.d.ts

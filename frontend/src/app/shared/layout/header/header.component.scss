@@ -1,8 +1,10 @@
-@use '../../../../assets/styles/variables';
+@use "../../../../assets/styles/variables";
 
 nav a {
-  display: inline-block;
-  padding: 10px 20px;
+  width: 6.5rem;
+  display: flex;
+  justify-content: center;
+  padding-block: 10px;
   margin: 5px;
   background-color: variables.$color-primary;
   color: white;
@@ -16,7 +18,30 @@ nav a {
   }
 }
 
-img {
-    width: 25%;
+nav {
+  margin-right: 1rem;
 }
 
+img {
+  width: 300px;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+  }
+
+  nav {
+    margin: 0px;
+  }  
+}
+
+@media (max-width: 500px) {
+
+    img {
+        width: 200px;
+    }
+  nav a {
+   width: 5.2rem; 
+  } 
+}

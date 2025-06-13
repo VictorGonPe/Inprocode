@@ -1,0 +1,25 @@
+<h2 class="text-xl font-bold mb-4">CRUD Database</h2>
+
+@if (stores().length > 0) {
+<ul>
+  @for (store of stores(); track store._id) {
+  <li class="mb-4 border-b pb-2">
+    <h3 class="text-lg font-semibold">{{ store.name }}</h3>
+    <p>{{ store.address }}, {{ store.location }}</p>
+
+    @if (store.description) {
+    <p>{{ store.description }}</p>
+    } @if (store.image) {
+    <img
+      [src]="store.image"
+      [alt]="store.name"
+      width="150"
+      class="rounded-md mt-2"
+    />
+    }
+  </li>
+  }
+</ul>
+} @else {
+<p>No stores found.</p>
+}

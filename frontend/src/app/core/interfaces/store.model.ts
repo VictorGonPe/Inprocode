@@ -5,4 +5,8 @@ export interface Store {
   location: string;
   description?: string;
   image?: string;
+  phone: string;
+  email: string;
+  latitude: number;
+  longitude: number;
 }

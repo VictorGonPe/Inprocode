@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StoreService } from '../../core/services/store.service';
@@ -18,6 +18,8 @@ export class FormStoreComponent implements OnInit {
   private router = inject(Router);
   private route = inject(ActivatedRoute);
 
+  titleSection = '';
+
   form: FormGroup = this.fb.group({
     name: ['', Validators.required],
     address: ['', Validators.required],
@@ -29,6 +31,8 @@ export class FormStoreComponent implements OnInit {
   storeId: string | null = null;
 
   ngOnInit(): void {
+    this.titleSection = this.route.snapshot.data['titleSection'] || '';
+    
     this.route.paramMap.subscribe(params => {
       this.storeId = params.get('id');
       if (this.storeId) {

@@ -10,8 +10,7 @@ export const routes: Routes = [
     { path: 'map', component: MapComponent },
     { path: 'calendar', component: FullCalendarComponent },
     { path: 'graphics', component: GraphicsComponent },
-    { path: 'edit/:id', component: FormStoreComponent },
-    { path: 'create', component: FormStoreComponent },
+    { path: 'edit/:id', component: FormStoreComponent, data: { titleSection: 'Editar Comercio'} },
+    { path: 'create', component: FormStoreComponent, data: { titleSection: 'Crear Comercio'} },
     { path: '**', redirectTo: '' }
-
 ];

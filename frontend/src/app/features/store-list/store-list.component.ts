@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Store } from '../../core/interfaces/store.model';
 import { StoreService } from '../../core/services/store.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-store-list',
@@ -10,9 +10,19 @@ import { StoreService } from '../../core/services/store.service';
 })
 export class StoreListComponent implements OnInit {
   private storeService = inject(StoreService);
+  private router = inject(Router);
   stores = this.storeService.stores;
 
   ngOnInit(): void {
     this.storeService.fetchStores();
+  }
+  editStore(id: string) {
+    this.router.navigate(['/edit', id]);
+  }
+
+  deleteStore(id: string) {
+    this.storeService.deleteStore(id).subscribe(() => {
+      this.storeService.fetchStores();
+    });
   }
 }

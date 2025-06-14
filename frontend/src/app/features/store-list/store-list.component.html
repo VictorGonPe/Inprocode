@@ -17,9 +17,13 @@
       class="rounded-md mt-2"
     />
     }
+    <div class="mt-2 space-x-2">
+      <button (click)="editStore(store._id)">Editar</button>
+      <button (click)="deleteStore(store._id)">Borrar</button>
+    </div>
   </li>
   }
 </ul>
 } @else {
-<p>No stores found.</p>
+<p>No se han encontrado tiendas.</p>
 }

@@ -1,0 +1,40 @@
+<h2 class="text-xl font-bold mb-4">Editar comercio</h2>
+
+<form [formGroup]="form" (ngSubmit)="submit()" class="flex flex-col gap-4 max-w-md">
+  <label>
+    Nombre:
+    <input type="text" formControlName="name" class="border p-2 rounded" />
+  </label>
+
+  <label>
+    Calle:
+    <input type="text" formControlName="address" class="border p-2 rounded" />
+  </label>
+
+  <label>
+    Localización:
+    <input type="text" formControlName="location" class="border p-2 rounded" />
+  </label>
+
+  <label>
+    Descripción:
+    <input type="text" formControlName="description" class="border p-2 rounded" />
+  </label>
+
+  <label>
+    Imagen (URL):
+    <input type="text" formControlName="image" class="border p-2 rounded" />
+  </label>
+
+  @if (form.get('image')?.value) {
+    <img
+      [src]="form.get('image')?.value"
+      alt="Vista previa"
+      class="w-40 rounded"
+    />
+  }
+
+  <button type="submit" [disabled]="form.invalid" class="bg-blue-600 text-white p-2 rounded">
+    Guardar
+  </button>
+</form>

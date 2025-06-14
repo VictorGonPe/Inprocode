@@ -1,7 +1,17 @@
-@use 'assets/styles/bootstrap-custom';
+@use "assets/styles/bootstrap-custom";
 
-.btn-primary, .btn-success, .btn-dark {
+.btn-primary,
+.btn-success,
+.btn-dark {
   color: #fff;
 }
 
+body {
+  margin-inline: 8rem;
+}
 
+@media (max-width: 768px) {
+  body {
+    margin-inline: 1rem;
+  }
+}

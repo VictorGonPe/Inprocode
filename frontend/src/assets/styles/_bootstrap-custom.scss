@@ -1,0 +1,20 @@
+// _bootstrap-custom.scss
+$primary: #e63946;
+$danger: #d90429;
+$success: #38b000;
+$warning: #f9c74f;
+$light: #f8f9fa;
+$dark: #212529;
+
+$theme-colors: (
+  "primary": $primary,
+  "danger": $danger,
+  "success": $success,
+  "warning": $warning,
+  "light": $light,
+  "dark": $dark
+);
+
+@use "bootstrap/scss/bootstrap" with (
+  $theme-colors: $theme-colors
+);

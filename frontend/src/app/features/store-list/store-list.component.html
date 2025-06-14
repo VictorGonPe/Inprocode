@@ -1,31 +1,46 @@
-<h2 class="text-xl font-bold mb-4">CRUD Database</h2>
+<h2 class="text-xl fw-bold mb-4">CRUD Database</h2>
 
 @if (stores().length > 0) {
-<ul>
-  @for (store of stores(); track store._id) {
-  <li class="mb-4 border-b pb-2">
-    <h3 class="text-lg font-semibold">{{ store.name }}</h3>
-    <p>{{ store.address }}, {{ store.location }}</p>
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover align-middle text-center">
+      <thead class="table-light">
+        <tr>
+          <th>Nombre</th>
+          <th>Dirección</th>
+          <th>Localización</th>
+          <th>Descripción</th>
+          <th>Imagen</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (store of stores(); track store._id) {
+          <tr>
+            <td>{{ store.name }}</td>
+            <td>{{ store.address }}</td>
+            <td>{{ store.location }}</td>
+            <td>{{ store.description || '-' }}</td>
+            <td>
+              @if (store.image) {
+                <img [src]="store.image" [alt]="store.name" class="img-thumbnail" style="max-width: 100px;" />
+              } @else {
+                <span>-</span>
+              }
+            </td>
+            <td>
+              <button (click)="editStore(store._id!)" class="btn btn-sm btn-warning me-2">Editar</button>
+              <button (click)="deleteStore(store._id!)" class="btn btn-sm btn-danger">Borrar</button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
 
-    @if (store.description) {
-    <p>{{ store.description }}</p>
-    } @if (store.image) {
-    <img
-      [src]="store.image"
-      [alt]="store.name"
-      width="150"
-      class="rounded-md mt-2"
-    />
-    }
-    <div class="mt-2 space-x-2">
-      <button (click)="editStore(store._id)">Editar</button>
-      <button (click)="deleteStore(store._id)">Borrar</button>
-    </div>
-  </li>
-  }
-</ul>
-<button (click)="downloadCSV()">Descargar CSV</button>
-<button (click)="createStore()">Añadir</button>
+  <div class="mt-3 d-flex gap-2">
+    <button (click)="downloadCSV()" class="btn btn-primary">Descargar CSV</button>
+    <button (click)="createStore()" class="btn btn-success">Añadir</button>
+  </div>
 } @else {
-<p>No se han encontrado tiendas.</p>
+  <p>No se han encontrado tiendas.</p>
 }

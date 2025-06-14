@@ -1,5 +1,7 @@
-@use 'assets/styles/variables';
+@use 'assets/styles/bootstrap-custom';
 
-body {
-    
+.btn-primary, .btn-success, .btn-dark {
+  color: #fff;
 }
+
+

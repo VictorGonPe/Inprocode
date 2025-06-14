@@ -1,4 +1,4 @@
-<h2 class="text-xl font-bold mb-4">Editar comercio</h2>
+<h2 class="text-xl font-bold mb-4">{{titleSection}}</h2>
 
 <form [formGroup]="form" (ngSubmit)="submit()" class="flex flex-col gap-4 max-w-md">
   <label>
@@ -34,7 +34,7 @@
     />
   }
 
-  <button type="submit" [disabled]="form.invalid" class="bg-blue-600 text-white p-2 rounded">
+  <button type="submit" [disabled]="form.invalid" class="btn btn-success p-2 rounded">
     Guardar
   </button>
 </form>

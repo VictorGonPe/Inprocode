@@ -17,4 +17,21 @@ export class StoreService {
       error: (err) => console.error('Error fetching stores:', err),
     });
   }
+
+  createStore(store: Store) {
+    return this.http.post<Store>(this.apiUrl, store);
+  }
+
+  getStore(id: string) {
+    return this.http.get<Store>(`${this.apiUrl}/${id}`);
+  }
+
+  updateStore(id: string, store: Store) {
+    return this.http.put<Store>(`${this.apiUrl}/${id}`, store);
+  }
+
+  deleteStore(id: string) {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }
+
 }

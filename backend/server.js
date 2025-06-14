@@ -3,11 +3,13 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const storeRoutes = require('./routes/store.routes');
 const connectDB = require('./config/db');
+const cors = require('cors');
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 connectDB();
 

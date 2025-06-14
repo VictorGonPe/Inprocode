@@ -26,13 +26,18 @@ export class FormStoreComponent implements OnInit {
     location: ['', Validators.required],
     description: [''],
     image: [''],
+    phone: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    latitude: [null, Validators.required],
+    longitude: [null, Validators.required]
   });
+
 
   storeId: string | null = null;
 
   ngOnInit(): void {
     this.titleSection = this.route.snapshot.data['titleSection'] || '';
-    
+
     this.route.paramMap.subscribe(params => {
       this.storeId = params.get('id');
       if (this.storeId) {

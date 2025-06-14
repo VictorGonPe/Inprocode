@@ -26,6 +26,11 @@ export class StoreService {
     return this.http.get<Store>(`${this.apiUrl}/${id}`);
   }
 
+  getStores() {
+  return this.http.get<Store[]>(this.apiUrl);
+}
+
+
   updateStore(id: string, store: Store) {
     return this.http.put<Store>(`${this.apiUrl}/${id}`, store);
   }

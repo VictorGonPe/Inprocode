@@ -13,5 +13,4 @@ export const routes: Routes = [
     { path: 'edit/:id', component: FormStoreComponent },
     { path: 'create', component: FormStoreComponent },
     { path: '**', redirectTo: '' }
-
 ];

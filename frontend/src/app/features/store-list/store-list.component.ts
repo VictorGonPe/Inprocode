@@ -23,6 +23,7 @@ export class StoreListComponent implements OnInit {
   deleteStore(id: string) {
     this.storeService.deleteStore(id).subscribe(() => {
       this.storeService.fetchStores();
+      this.router.navigate(['/']);
     });
   }
 }

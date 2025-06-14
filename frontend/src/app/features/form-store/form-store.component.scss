@@ -1,7 +1,7 @@
 @use "assets/styles/bootstrap-custom" as val;
 
 .card {
-    width: 70%;
+  width: 70%;
   border-color: val.$primary;
   box-shadow: 2px 8px 8px rgb(255, 201, 201);
 }

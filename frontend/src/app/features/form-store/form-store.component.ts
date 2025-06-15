@@ -20,8 +20,24 @@ export class FormStoreComponent implements OnInit {
 
   titleSection = '';
 
+  storeTypes = [
+    { value: 'estanco', label: 'Estanco' },
+    { value: 'restaurante', label: 'Restaurante / Bar' },
+    { value: 'drogueria', label: 'Droguería / Perfumería' },
+    { value: 'zapateria', label: 'Zapatería' },
+    { value: 'panaderia', label: 'Panadería / Pastelería' },
+    { value: 'supermercado', label: 'Supermercado / Alimentación' },
+    { value: 'ropa', label: 'Tienda de ropa' },
+    { value: 'ferreteria', label: 'Ferretería' },
+    { value: 'papeleria', label: 'Papelería / Librería' },
+    { value: 'fruteria', label: 'Frutería / Verdulería' },
+  ];
+
+
   form: FormGroup = this.fb.group({
     name: ['', Validators.required],
+    type: ['', Validators.required],
+    premium: [false],
     address: ['', Validators.required],
     location: ['', Validators.required],
     description: [''],

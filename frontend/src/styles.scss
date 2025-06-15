@@ -10,8 +10,28 @@ body {
   margin-inline: 8rem;
 }
 
+.container {
+    margin-block: 2rem;
+}
+
+h2 {
+  color: #d90429;
+}
+
+.mapboxgl-popup-content {
+    border-radius: 10px;
+}
+
+.popup h6 {
+    padding-top: 20px;
+}
+
+
 @media (max-width: 768px) {
   body {
     margin-inline: 1rem;
   }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

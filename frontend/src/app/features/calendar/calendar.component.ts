@@ -1,7 +1,9 @@
-import { Component, AfterViewInit, inject } from '@angular/core';
+import { Component, AfterViewInit, ViewEncapsulation } from '@angular/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { Calendar } from '@fullcalendar/core';
+import esLocale from '@fullcalendar/core/locales/es';
+
 
 
 @Component({
@@ -9,6 +11,7 @@ import { Calendar } from '@fullcalendar/core';
   standalone: true,
   imports: [],
   templateUrl: './calendar.component.html',
+  encapsulation: ViewEncapsulation.None,
   styleUrl: './calendar.component.scss'
 })
 export class CalendarComponent implements AfterViewInit {
@@ -18,6 +21,7 @@ export class CalendarComponent implements AfterViewInit {
     const calendar = new Calendar(calendarEl, {
       plugins: [dayGridPlugin, interactionPlugin],
       initialView: 'dayGridMonth',
+      locale: esLocale,
       editable: true,
       selectable: true,
       events: [],

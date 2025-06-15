@@ -1,4 +1,47 @@
 #calendar {
-  max-width: 900px;
-  margin: 0 auto;
+  .fc-toolbar-title {
+    font-size: 1.5rem;
+    color: #198754;
+  }
+
+  .fc-daygrid-event {
+    background-color: #198754;
+    border: none;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+
+  .fc-day-today {
+    background-color: #fff3b8;
+  }
+
+  button:hover {
+    background-color: #198754;
+    color: white;
+    border: 1px solid #198754;
+  }
+
+  .fc-daygrid-day-number {
+    font-size: 2rem;
+    color: #212529;
+    text-decoration: none;
+  }
+
+  .fc-col-header-cell-cushion {
+    color: #495057;
+    text-decoration: none;
+  }
 }
+
+$color-primary: #e63946;
+$color-primary-dark: #a4161a;
+$color-primary-light: #f28b82;
+
+$color-white: #ffffff;
+$color-light: #f8f9fa;
+$color-grey-light: #dee2e6;
+$color-grey: #adb5bd;
+$color-grey-dark: #495057;
+$color-black: #212529;

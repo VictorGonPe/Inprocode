@@ -1,0 +1,10 @@
+<h2 mat-dialog-title class="h2">Confirmar eliminación</h2>
+
+<mat-dialog-content>
+  <p>¿Quieres eliminar el artículo "<strong>{{ data.title }}</strong>"?</p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">Cancelar</button>
+  <button mat-flat-button color="warn" (click)="confirm()">Eliminar</button>
+</mat-dialog-actions>

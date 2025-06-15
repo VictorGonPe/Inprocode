@@ -1,4 +1,31 @@
 <div class="container">
-    <h2 class="text-xl fw-bold mb-4">Encuentra tu ubicación</h2>
-    <div id="map" style="height: 500px; width: 100%;"></div>
+  <h2 class="text-xl fw-bold mb-4">Encuentra tu ubicación</h2>
+  <div class="filters">
+    <label for="category">Tipo de tienda:</label>
+    <select
+      id="category"
+      [(ngModel)]="selectedCategory"
+      (change)="updateMarkers()"
+    >
+      <option value="">Todas</option>
+      <option *ngFor="let cat of storeTypes" [value]="cat.value">
+        {{ cat.label }}
+      </option>
+    </select>
+
+    <label>
+      <input
+        type="checkbox"
+        [(ngModel)]="onlyPremium"
+        (change)="updateMarkers()"
+      />
+
+      Solo tiendas premium
+    </label>
+  </div>
+  <div id="map" style="height: 500px; width: 100%"></div>
 </div>
+
+<div #markerTemplate class="marker" style="display: none;"></div>
+<div #markerPremiumTemplate class="marker-premium" style="display: none;"></div>
+

@@ -1,0 +1,23 @@
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+#donutCanvas {
+  max-width: 400px;
+  max-height: 400px;
+}
+
+#barCanvas {
+  max-width: 400px;
+  max-height: 400px;
+}
+
+@media (max-width: 800px) {
+  .container {
+    flex-direction: column;
+  }
+}

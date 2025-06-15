@@ -14,6 +14,16 @@
       </div>
     </div>
 
+    <div class="form-group mb-3">
+      <label for="type">Tipo de tienda</label>
+      <select id="type" class="form-control" formControlName="type" required>
+        <option value="">Seleccione tipo</option>
+        @for (type of storeTypes; track type.value) {
+        <option [value]="type.value">{{ type.label }}</option>
+        }
+      </select>
+    </div>
+
     <div class="mb-3 row">
       <label for="address" class="col-sm-4 col-form-label">Calle:</label>
       <div class="col-sm-8">
@@ -123,6 +133,16 @@
       />
     </div>
     }
+
+    <div class="form-check mb-4">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="premium"
+        formControlName="premium"
+      />
+      <label class="form-check-label" for="premium">¿Es tienda premium?</label>
+    </div>
 
     <div class="text-center">
       <button type="submit" [disabled]="form.invalid" class="btn btn-success">

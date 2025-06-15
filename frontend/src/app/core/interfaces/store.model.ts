@@ -9,4 +9,6 @@ export interface Store {
   email: string;
   latitude: number;
   longitude: number;
+  type: string;   
+  premium: boolean;
 }

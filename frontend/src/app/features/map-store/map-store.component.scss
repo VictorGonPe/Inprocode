@@ -2,3 +2,18 @@
     border: 5px double #e63946;
 }
 
+.marker, .marker-premium {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  z-index: 10;
+}
+.marker {
+  background-color: #007cbf;
+}
+.marker-premium {
+  background-color: gold;
+  border: 2px solid #444;
+  width: 24px;
+  height: 24px;
+}

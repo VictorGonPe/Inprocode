@@ -17,7 +17,7 @@ connectDB();
 app.use('/api/stores', storeRoutes);
 
 app.get('/', (req, res) => {
-  res.send('✅ API de tiendas funcionando');
+  res.send('API de tiendas funcionando');
 });
 
 // Servidor

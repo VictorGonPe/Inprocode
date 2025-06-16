@@ -1,9 +1,10 @@
 <div class="container">
   <h2 class="text-xl fw-bold mb-4">Encuentra tu ubicación</h2>
-  <div class="filters">
-    <label for="category">Tipo de tienda:</label>
+  <div class="filters mb-2">
+    <label for="category" class="fw-bold me-2">Tipo de tienda:</label>
     <select
       id="category"
+      class="me-3"
       [(ngModel)]="selectedCategory"
       (change)="updateMarkers()"
     >
@@ -16,6 +17,7 @@
     <label>
       <input
         type="checkbox"
+        class="mt-2"
         [(ngModel)]="onlyPremium"
         (change)="updateMarkers()"
       />

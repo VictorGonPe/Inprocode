@@ -27,7 +27,7 @@ export class MapStoreComponent implements AfterViewInit {
 
   storeTypes = [
     { value: 'estanco', label: 'Estanco' },
-    { value: 'restaurante', label: 'Restaurante' },
+    { value: 'restaurante', label: 'Restaurante / Bar' },
     { value: 'drogueria', label: 'Droguería / Perfumería' },
     { value: 'zapateria', label: 'Zapatería' },
     { value: 'panaderia', label: 'Panadería / Pastelería' },
@@ -48,7 +48,6 @@ export class MapStoreComponent implements AfterViewInit {
       zoom: 17,
     });
     this.storeService.getStores().subscribe((data: Store[]) => {
-      console.log('📦 Tiendas cargadas:', data.length);
       this.stores = data;
       this.updateMarkers(); // Mostrar todos al inicio
     });

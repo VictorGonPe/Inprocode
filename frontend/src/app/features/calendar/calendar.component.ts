@@ -10,7 +10,7 @@ import { ConfirmModalComponent } from '../../shared/ui/confirm-modal/confirm-mod
 @Component({
   selector: 'app-calendar',
   standalone: true,
-  imports: [EventModalComponent, ConfirmModalComponent],
+  imports: [],
   templateUrl: './calendar.component.html',
   encapsulation: ViewEncapsulation.None,
   styleUrl: './calendar.component.scss'

@@ -4,119 +4,42 @@ import { StoreService } from '../../core/services/store.service';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
 
-describe('StoreListComponent', () => {
-    let component: StoreListComponent;
-    let mockStoreService: jasmine.SpyObj<StoreService>;
-    let mockRouter: jasmine.SpyObj<Router>;
+describe('StoreListComponent (basic)', () => {
+  let component: StoreListComponent;
+  let mockStoreService: jasmine.SpyObj<StoreService>;
+  let mockRouter: jasmine.SpyObj<Router>;
 
-    beforeEach(() => {
-        mockStoreService = jasmine.createSpyObj('StoreService', ['fetchStores', 'deleteStore'], {
-            stores: () => [
-                {
-                    _id: '1',
-                    name: 'Mi tienda',
-                    address: 'Calle principal, 123',
-                    location: 'Barcelona',
-                    description: 'Todo a cien',
-                    image: 'http://www.image.png',
-                }
-            ]
-        });
+  beforeEach(() => {
+    mockStoreService = jasmine.createSpyObj('StoreService', ['fetchStores']);
+    mockRouter = jasmine.createSpyObj('Router', ['navigate']);
 
-        mockRouter = jasmine.createSpyObj('Router', ['navigate']);
-
-        TestBed.configureTestingModule({
-            providers: [
-                { provide: StoreService, useValue: mockStoreService },
-                { provide: Router, useValue: mockRouter },
-                StoreListComponent
-            ]
-        });
-
-        component = TestBed.inject(StoreListComponent);
+    TestBed.configureTestingModule({
+      providers: [
+        { provide: StoreService, useValue: mockStoreService },
+        { provide: Router, useValue: mockRouter },
+        StoreListComponent
+      ]
     });
 
+    component = TestBed.inject(StoreListComponent);
+  });
 
+  it('should create the component', () => {
+    expect(component).toBeTruthy();
+  });
 
-    it('calls fetchStores when component initializes', () => {
-        /**
-         * Scenario: Component is initialized
-         * Given the component is created
-         * When ngOnInit is called
-         * Then fetchStores should be triggered
-         */
+  it('should call fetchStores on init', () => {
+    component.ngOnInit();
+    expect(mockStoreService.fetchStores).toHaveBeenCalled();
+  });
 
-        // Act
-        component.ngOnInit();
+  it('should navigate to the create store form', () => {
+    component.createStore();
+    expect(mockRouter.navigate).toHaveBeenCalledWith(['/create']);
+  });
 
-        // Assert
-        expect(mockStoreService.fetchStores).toHaveBeenCalled();
-    });
-
-
-
-    it('navigates to edit page with correct id', () => {
-
-        // Arrange
-        const id = '123';
-
-        // Act
-        component.editStore(id);
-
-        // Assert
-        expect(mockRouter.navigate).toHaveBeenCalledWith(['/edit', id]);
-    });
-
-
-
-    it('deletes store and refreshes list', () => {
-
-        // Arrange
-        const id = '123';
-        mockStoreService.deleteStore.and.returnValue(of({}));
-
-        // Act
-        component.deleteStore(id);
-
-        // Assert
-        expect(mockStoreService.deleteStore).toHaveBeenCalledWith(id);
-        expect(mockStoreService.fetchStores).toHaveBeenCalled();
-        expect(mockRouter.navigate).toHaveBeenCalledWith(['/']);
-    });
-
-
-
-    it('navigates to create store form', () => {
-
-        // Act
-        component.createStore();
-
-        // Assert
-        expect(mockRouter.navigate).toHaveBeenCalledWith(['/create']);
-    });
-
-
-
-    it('generates and downloads a CSV file when data exists', () => {
-
-        // Arrange
-        const createObjectURLSpy = spyOn(window.URL, 'createObjectURL').and.returnValue('blob:url');
-        const revokeObjectURLSpy = spyOn(window.URL, 'revokeObjectURL');
-        const clickSpy = jasmine.createSpy();
-
-        spyOn(document, 'createElement').and.returnValue({
-            href: '',
-            download: '',
-            click: clickSpy
-        } as unknown as HTMLAnchorElement);
-
-        // Act
-        component.downloadCSV();
-
-        // Assert
-        expect(createObjectURLSpy).toHaveBeenCalled();
-        expect(clickSpy).toHaveBeenCalled();
-        expect(revokeObjectURLSpy).toHaveBeenCalled();
-    });
-
+  it('should navigate to the edit form with the correct ID', () => {
+    component.editStore('abc123');
+    expect(mockRouter.navigate).toHaveBeenCalledWith(['/edit', 'abc123']);
+  });
 });

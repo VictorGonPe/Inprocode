@@ -7,7 +7,7 @@ import { FormStoreComponent } from '../../features/form-store/form-store.compone
 
 @Component({
   selector: 'app-home',
-  imports: [StoreListComponent, FormStoreComponent],
+  imports: [StoreListComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

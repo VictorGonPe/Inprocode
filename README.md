@@ -1,6 +1,6 @@
 # Inprocode
 
-![Preview](src/assets/img/preview-inprocode.png "Inprocode")
+![Preview](frontend/src/assets/img/preview-inprocode.png "Inprocode")
 
 ## Project Description
 

@@ -82,15 +82,12 @@ MONGODB_URI=mongodb://localhost:27017/inprocode
 
 > You can replace this with your [MongoDB Atlas URI](https://www.mongodb.com/cloud/atlas).
 
-#### Frontend (`frontend/src/environments/environment.ts`)
+#### Frontend (`frontend/src/environment.ts`)
 ```ts
 export const environment = {
   production: false,
   mapbox: {
     accessToken: 'YOUR_MAPBOX_ACCESS_TOKEN'
-  },
-  calendar: {
-    apiKey: 'YOUR_FULLCALENDAR_API_KEY'
   }
 };
 ```
@@ -109,3 +106,10 @@ cd ../frontend
 npx ng serve -o
 ```
 
+## Running unit tests
+
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+
+```bash
+ng test
+```

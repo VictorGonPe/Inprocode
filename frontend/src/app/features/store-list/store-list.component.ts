@@ -40,7 +40,7 @@ export class StoreListComponent implements OnInit {
 
     const headers = Object.keys(data[0]);
     const csvRows = [
-      headers.join(','), // encabezados
+      headers.join(','), 
       ...data.map(store =>
         headers.map(header => JSON.stringify(store[header as keyof Store] ?? '')).join(',')
       )

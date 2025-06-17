@@ -10,5 +10,5 @@ import { Header } from "./shared/layout/header/header.component";
   styleUrl: './app.component.scss'
 })
 export class App {
-
+  
 }

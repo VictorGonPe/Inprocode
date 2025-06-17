@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { StoreService } from '../../core/services/store.service';
 import { FormsModule } from '@angular/forms';
 import mapboxgl from 'mapbox-gl';
-import { environment } from '../../../environment';
+import { environment } from 'environments/environment';
 import { Store } from '../../core/interfaces/store.model';
 
 @Component({

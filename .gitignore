@@ -21,8 +21,8 @@ yarn-error.log*
 .env.production
 environment.ts
 environment*.ts
-frontend/src/environments/environment*.ts
-!frontend/src/environments/environment.ts
+#frontend/src/environments/environment*.ts
+#!frontend/src/environments/environment.ts
 
 # Angular - frontend
 frontend/dist/

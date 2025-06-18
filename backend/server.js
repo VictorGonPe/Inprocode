@@ -12,23 +12,25 @@ const app = express();
 app.use(express.json());
 
 const allowedOrigins = [
-  'http://localhost:4200',
-  'https://inprocode.vercel.app'
+  'https://inprocode.vercel.app',
+  'https://inprocode-eight.vercel.app',
+  'http://localhost:4200'
 ];
 
 app.use(cors({
   origin: function (origin, callback) {
-    // Permitir sin origin (como Postman o Curl)
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      console.error('Blocked by CORS:', origin);
+      console.error('❌ CORS bloqueado para:', origin);
       callback(new Error('Not allowed by CORS'));
     }
   },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type'],
+  credentials: true
 }));
+
 
 
 connectDB();

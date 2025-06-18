@@ -19,10 +19,7 @@ yarn-error.log*
 .env.development
 .env.test
 .env.production
-environment.ts
-environment*.ts
-#frontend/src/environments/environment*.ts
-#!frontend/src/environments/environment.ts
+
 
 # Angular - frontend
 frontend/dist/
